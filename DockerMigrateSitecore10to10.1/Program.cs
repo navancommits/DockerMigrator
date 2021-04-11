@@ -1,17 +1,17 @@
 using System;
 using System.IO;
-using System.Threading;
 
 namespace DockerMigrateSitecore10to10._1
 {
     class Program
     {
+        static string _docker10Path;
         static void Main(string[] args)
         {
             //var optionVal = args[0]; // 1 - to generate files specific to 10.1
-            //var docker10Path = args[0]; // 1 - to generate files specific to 10.1
+            _docker10Path = args[0]; // 1 - to generate files specific to 10.1
 
-            const string docker10Path = @"C:\Projects\Helix.Examples\examples\helix-basic-tds-consolidated";
+            //const string docker10Path = @"C:\Projects\Helix.Examples\examples\helix-basic-tds-consolidated";
 
             //validate the path to see if there is 10.0 files
             /* does not Modify .env file specific to 10.1
@@ -20,21 +20,21 @@ namespace DockerMigrateSitecore10to10._1
             // Add solr-init folder under build and then add docker file under it
             */
 
-            if (string.IsNullOrWhiteSpace(docker10Path))
+            if (string.IsNullOrWhiteSpace(_docker10Path))
             {
                 Console.WriteLine("Docker 10 File Path Required!");
                 return;
             }
 
-            if (!DockerComposeandOverrideFilesExist(docker10Path))
+            if (!DockerComposeandOverrideFilesExist(_docker10Path))
             {
                 Console.WriteLine("Docker 10 Compose and Override Files Required!");
                 return;
             }
 
-            UpdateSolrSectionsinDockerComposeFile(docker10Path + @"\docker-compose.yml");// modify docker compose file
-            UpdateSolrSectionsinDockerOverrideFile(docker10Path + @"\docker-compose.override.yml"); // modify docker override file
-            AddBuildSolrInitFolderandFile(docker10Path + @"\docker\build\solr-init");//add solr-init folder under build folder and then add the required .docker file
+            UpdateSolrSectionsinDockerComposeFile(_docker10Path + @"\docker-compose.yml");// modify docker compose file
+            UpdateSolrSectionsinDockerOverrideFile(_docker10Path + @"\docker-compose.override.yml"); // modify docker override file
+            AddBuildSolrInitFolderandFile(_docker10Path + @"\docker\build\solr-init");//add solr-init folder under build folder and then add the required .docker file
 
         }
 
@@ -229,7 +229,7 @@ namespace DockerMigrateSitecore10to10._1
             var tracksolr = false;
             var argsTracked = false;
 
-            using (var input = File.OpenText(@"C:\Projects\Helix.Examples\examples\helix-basic-tds\docker-compose.override.yml"))
+            using (var input = File.OpenText(_docker10Path + @"\docker-compose.override.yml"))
             {
                 string currline;
                 fileChanged = false;
