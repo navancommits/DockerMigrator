@@ -120,7 +120,7 @@ namespace DockerMigrateSitecore10to10._1
 
                     }
 
-                    if (count > 1) currline = currline.Replace("solr:", "solr-init:");
+                    if (count > 1) currline = currline.Replace("  solr:", "  solr-init:");
                     concatLines += currline + Environment.NewLine;
                 }
 
@@ -285,9 +285,9 @@ namespace DockerMigrateSitecore10to10._1
 
         private static void AddBuildSolrInitFolderandFile(string filePath)
         {
-            if (!Directory.Exists(destPath))
+            if (!Directory.Exists(filePath))
             {
-                Directory.CreateDirectory(destPath);
+                Directory.CreateDirectory(filePath);
             }
             CheckSolrArgsSectioninDockerOverrideFile(filePath);
         }
