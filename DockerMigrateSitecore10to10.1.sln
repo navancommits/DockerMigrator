@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerMigrateSitecore10to10.1", "DockerMigrateSitecore10to10.1\DockerMigrateSitecore10to10.1.csproj", "{7859E88D-62B3-4CE5-9F2F-4C13EC98AC7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7859E88D-62B3-4CE5-9F2F-4C13EC98AC7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7859E88D-62B3-4CE5-9F2F-4C13EC98AC7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7859E88D-62B3-4CE5-9F2F-4C13EC98AC7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7859E88D-62B3-4CE5-9F2F-4C13EC98AC7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E049700F-EEBC-45E3-A89F-F9724844E5BF}
+	EndGlobalSection
+EndGlobal
